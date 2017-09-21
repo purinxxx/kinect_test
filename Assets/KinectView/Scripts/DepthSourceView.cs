@@ -27,6 +27,7 @@ public class DepthSourceView : MonoBehaviour
     public List<float> hand3y = new List<float>();
     public List<float> hand4x = new List<float>();
     public List<float> hand4y = new List<float>();
+    public static int[] handexit = new int[4];
 
     public DepthViewMode ViewMode = DepthViewMode.SeparateSourceReaders;
     
@@ -214,8 +215,7 @@ public class DepthSourceView : MonoBehaviour
                         _MultiManager.ColorWidth,
                         _MultiManager.ColorHeight);
         }
-
-        Debug.Log(detectedx.Count);
+        
         for (int i = 0; i < detectedx.Count; i++)  //複数手判定
         {
             if (hand1x.Count == 0)
@@ -314,7 +314,7 @@ public class DepthSourceView : MonoBehaviour
                 real_x = Mathf.Floor(real_x);
                 real_y = (depthData[num] - 850) * 1.14f;    //970 / 850;
                 real_y = Mathf.Floor(real_y);
-                Debug.Log("x = " + i.ToString() + "    y = " + depthData[num].ToString() + "    real_x = " + real_x.ToString() + "    real_y = " + real_y.ToString());
+                //Debug.Log("x = " + i.ToString() + "    y = " + depthData[num].ToString() + "    real_x = " + real_x.ToString() + "    real_y = " + real_y.ToString());
                 detectedx.Add(real_x);
                 detectedy.Add(real_y);
                 cnt++;
@@ -415,18 +415,20 @@ public class DepthSourceView : MonoBehaviour
 
             avex = avex / hand1x.Count;
             avey = avey / hand1y.Count;
-            Debug.Log(avex.ToString() + "," + avey.ToString());
+            //Debug.Log(avex.ToString() + "," + avey.ToString());
 
             Vector3 pos = HandPoint1.transform.localPosition;
             pos.x = avex / 10;
             pos.y = avey / 10;
-            pos.z = -1;
+            pos.z = 0;
             HandPoint1.transform.localPosition = pos;
+            handexit[0] = 1;
         }
         else {
             Vector3 pos = HandPoint1.transform.localPosition;
-            pos.z = 1;
+            pos.z = -200;
             HandPoint1.transform.localPosition = pos;
+            handexit[0] = 0;
         }
 
     }
@@ -446,19 +448,21 @@ public class DepthSourceView : MonoBehaviour
 
             avex = avex / hand2x.Count;
             avey = avey / hand2y.Count;
-            Debug.Log(avex.ToString() + "," + avey.ToString());
+            //Debug.Log(avex.ToString() + "," + avey.ToString());
 
             Vector3 pos = HandPoint2.transform.localPosition;
             pos.x = avex / 10;
             pos.y = avey / 10;
-            pos.z = -1;
+            pos.z = 0;
             HandPoint2.transform.localPosition = pos;
+            handexit[1] = 1;
         }
         else
         {
             Vector3 pos = HandPoint2.transform.localPosition;
-            pos.z = 1;
+            pos.z = -200;
             HandPoint2.transform.localPosition = pos;
+            handexit[1] = 0;
         }
     }
 
@@ -477,19 +481,21 @@ public class DepthSourceView : MonoBehaviour
 
             avex = avex / hand3x.Count;
             avey = avey / hand3y.Count;
-            Debug.Log(avex.ToString() + "," + avey.ToString());
+            //Debug.Log(avex.ToString() + "," + avey.ToString());
 
             Vector3 pos = HandPoint3.transform.localPosition;
             pos.x = avex / 10;
             pos.y = avey / 10;
-            pos.z = -1;
+            pos.z = 0;
             HandPoint3.transform.localPosition = pos;
+            handexit[2] = 1;
         }
         else
         {
             Vector3 pos = HandPoint3.transform.localPosition;
-            pos.z = 1;
+            pos.z = -200;
             HandPoint3.transform.localPosition = pos;
+            handexit[2] = 0;
         }
     }
 
@@ -508,19 +514,21 @@ public class DepthSourceView : MonoBehaviour
 
             avex = avex / hand4x.Count;
             avey = avey / hand4y.Count;
-            Debug.Log(avex.ToString() + "," + avey.ToString());
+            //Debug.Log(avex.ToString() + "," + avey.ToString());
 
             Vector3 pos = HandPoint4.transform.localPosition;
             pos.x = avex / 10;
             pos.y = avey / 10;
-            pos.z = -1;
+            pos.z = 0;
             HandPoint4.transform.localPosition = pos;
+            handexit[3] = 1;
         }
         else
         {
             Vector3 pos = HandPoint4.transform.localPosition;
-            pos.z = 1;
+            pos.z = -200;
             HandPoint4.transform.localPosition = pos;
+            handexit[3] = 0;
         }
     }
 }
