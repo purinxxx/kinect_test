@@ -303,9 +303,13 @@ public class DepthSourceView : MonoBehaviour
         int cnt = 0;
         for (int i = 0; i < 512; i+=2)  //計算量短縮
         {
-            int num = 108544 + i;
+            int num = 108544 + i;   //512*(424/2)
             if (800 < depthData[num] && depthData[num] < 1800 && pre_i != i)
             {
+                /*
+                 * 左下と左上のnumとdepthを用いて連立方程式を解く
+                 * この場合、y=ax+b 左上1700=130a+b, 左下850=0a+b
+                 */
                 pre_i = i;
                 float a = 6.5f;  //6.5385
                 float b = 850f;
@@ -314,7 +318,7 @@ public class DepthSourceView : MonoBehaviour
                 real_x = Mathf.Floor(real_x);
                 real_y = (depthData[num] - 850) * 1.14f;    //970 / 850;
                 real_y = Mathf.Floor(real_y);
-                //Debug.Log("x = " + i.ToString() + "    y = " + depthData[num].ToString() + "    real_x = " + real_x.ToString() + "    real_y = " + real_y.ToString());
+                Debug.Log("x = " + i.ToString() + "    y = " + depthData[num].ToString() + "    real_x = " + real_x.ToString() + "    real_y = " + real_y.ToString());
                 detectedx.Add(real_x);
                 detectedy.Add(real_y);
                 cnt++;

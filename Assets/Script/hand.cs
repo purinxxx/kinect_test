@@ -9,11 +9,12 @@ public class hand : MonoBehaviour {
     public GameObject handpoint3;
     public GameObject handpoint4;
     public static Vector2[] handvertex = new[] { new Vector2(0f, 0f), new Vector2(0f, 0f), new Vector2(0f, 0f), new Vector2(0f, 0f)};
+    
 
     // Use this for initialization
     void Start () {
-		
-	}
+
+    }
 	
 	// Update is called once per frame
 	void Update ()
