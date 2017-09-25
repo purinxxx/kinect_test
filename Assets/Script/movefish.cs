@@ -8,8 +8,9 @@ public class movefish : MonoBehaviour {
     private int targetnum = -1;
     private Vector3 target;
     private Vector3 targetvector;
-    private float speed = 0.004f;
-    private float x1 = 153f, x2 = 154.65f, y1 = -58.8f, y2 = -59.85f, zfix = 0.003f;
+    public float avairabledistance = 0.5f;
+    public float speed = 0.004f, maxspeed = 0.006f, minspeed = 0.0005f, rotatespeed = 1f;
+    public float x1 = 153f, x2 = 154.65f, y1 = -58.8f, y2 = -59.85f;
     //private bool orikaesi = true;
 
     // Use this for initialization
@@ -21,7 +22,11 @@ public class movefish : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		for(int i = 0; i < hand.handvertex.Length; i++)
+        Vector3 pos = transform.position;
+        pos.z = 45.546f;    //z座標はhandpointと同じ初期位置で固定する
+        transform.position = pos;
+
+        for (int i = 0; i < hand.handvertex.Length; i++)
         {
             if (DepthSourceView.handexit[i] == 1)   //手が存在している場合のみ距離を測る
             {
@@ -36,12 +41,13 @@ public class movefish : MonoBehaviour {
 
         float dmin = Mathf.Min(d);  //最も近くの手が一定の距離以内の場合、その手に向かって泳ぐ
 
-        if (dmin < 0.5f)
+        if (dmin < avairabledistance && dmin > 0.2f)
         {
             for (int i = 0; i < d.Length; i++)
             {
                 if (d[i] == dmin)
                 {
+                    speed += 0.002f;
                     targetnum = i;
                     target.x = hand.handvertex[targetnum].x;
                     target.y = hand.handvertex[targetnum].y;
@@ -58,22 +64,13 @@ public class movefish : MonoBehaviour {
             }
             //Debug.Log(target);
             speed += Random.Range(-0.0003f,0.0003f);
-            if (speed > 0.006f) speed -= 0.001f;
-            if (speed < 0.0005f) speed += 0.001f;
+            if (speed > maxspeed) speed -= 0.001f;
+            if (speed < minspeed) speed += 0.001f;
             target.z = transform.position.z;
             targetvector = target - transform.position;
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(targetvector), 0.05f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(targetvector), rotatespeed);
             transform.position += transform.forward * speed;
-            Vector3 pos = transform.position;
-            if (pos.z > 45.546) //z座標はhandpointと同じ初期位置で固定する
-            {
-                pos.z -= zfix;
-            }
-            else
-            {
-                pos.z += zfix;
-            }
-            transform.position = pos;
+            
         }
 
 
@@ -83,19 +80,9 @@ public class movefish : MonoBehaviour {
             target.z = transform.position.z;
             targetvector = target - transform.position;
             //targetの方に少しずつ向きが変わる
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(targetvector), 0.05f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(targetvector), rotatespeed);
             //targetに向かって進む
             transform.position += transform.forward * speed;
-            Vector3 pos = transform.position;
-            if (pos.z > 45.546) //z座標はhandpointと同じ初期位置で固定する
-            {
-                pos.z -= zfix;
-            }
-            else
-            {
-                pos.z += zfix;
-            }
-            transform.position = pos;
             targetnum = -1;
         }
 	}

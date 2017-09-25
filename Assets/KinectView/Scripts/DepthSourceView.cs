@@ -27,7 +27,12 @@ public class DepthSourceView : MonoBehaviour
     public List<float> hand3y = new List<float>();
     public List<float> hand4x = new List<float>();
     public List<float> hand4y = new List<float>();
-    public static int[] handexit = new int[4];
+    public List<float> hand5x = new List<float>();
+    public List<float> hand5y = new List<float>();
+    public List<float> hand6x = new List<float>();
+    public List<float> hand6y = new List<float>();
+    public static int[] handexit = new int[6];
+    public int avilabledistance =200;
 
     public DepthViewMode ViewMode = DepthViewMode.SeparateSourceReaders;
     
@@ -41,6 +46,8 @@ public class DepthSourceView : MonoBehaviour
     public GameObject HandPoint2;
     public GameObject HandPoint3;
     public GameObject HandPoint4;
+    public GameObject HandPoint5;
+    public GameObject HandPoint6;
 
     private KinectSensor _Sensor;
     private CoordinateMapper _Mapper;
@@ -70,6 +77,10 @@ public class DepthSourceView : MonoBehaviour
         hand3y.Clear();
         hand4x.Clear();
         hand4y.Clear();
+        hand5x.Clear();
+        hand5y.Clear();
+        hand6x.Clear();
+        hand6y.Clear();
         _Sensor = KinectSensor.GetDefault();
         if (_Sensor != null)
         {
@@ -225,7 +236,7 @@ public class DepthSourceView : MonoBehaviour
             }
             else
             {
-                if (Mathf.Abs(detectedx[i] - hand1x[0]) + Mathf.Abs(detectedy[i] - hand1y[0]) < 300)
+                if (Mathf.Abs(detectedx[i] - hand1x[0]) + Mathf.Abs(detectedy[i] - hand1y[0]) < avilabledistance)   //計算量短縮のために二乗を使わないで距離判定
                 {
                     hand1x.Add(detectedx[i]);
                     hand1y.Add(detectedy[i]);
@@ -239,7 +250,7 @@ public class DepthSourceView : MonoBehaviour
                     }
                     else
                     {
-                        if (Mathf.Abs(detectedx[i] - hand2x[0]) + Mathf.Abs(detectedy[i] - hand2y[0]) < 300)
+                        if (Mathf.Abs(detectedx[i] - hand2x[0]) + Mathf.Abs(detectedy[i] - hand2y[0]) < avilabledistance)
                         {
                             hand2x.Add(detectedx[i]);
                             hand2y.Add(detectedy[i]);
@@ -253,7 +264,7 @@ public class DepthSourceView : MonoBehaviour
                             }
                             else
                             {
-                                if (Mathf.Abs(detectedx[i] - hand3x[0]) + Mathf.Abs(detectedy[i] - hand3y[0]) < 300)
+                                if (Mathf.Abs(detectedx[i] - hand3x[0]) + Mathf.Abs(detectedy[i] - hand3y[0]) < avilabledistance)
                                 {
                                     hand3x.Add(detectedx[i]);
                                     hand3y.Add(detectedy[i]);
@@ -267,10 +278,42 @@ public class DepthSourceView : MonoBehaviour
                                     }
                                     else
                                     {
-                                        if (Mathf.Abs(detectedx[i] - hand4x[0]) + Mathf.Abs(detectedy[i] - hand4y[0]) < 30)
+                                        if (Mathf.Abs(detectedx[i] - hand4x[0]) + Mathf.Abs(detectedy[i] - hand4y[0]) < avilabledistance)
                                         {
                                             hand4x.Add(detectedx[i]);
                                             hand4y.Add(detectedy[i]);
+                                        }
+                                        else
+                                        {
+                                            if (hand5x.Count == 0)
+                                            {
+                                                hand5x.Add(detectedx[i]);
+                                                hand5y.Add(detectedy[i]);
+                                            }
+                                            else
+                                            {
+                                                if (Mathf.Abs(detectedx[i] - hand5x[0]) + Mathf.Abs(detectedy[i] - hand5y[0]) < avilabledistance)
+                                                {
+                                                    hand5x.Add(detectedx[i]);
+                                                    hand5y.Add(detectedy[i]);
+                                                }
+                                                else
+                                                {
+                                                    if (hand6x.Count == 0)
+                                                    {
+                                                        hand6x.Add(detectedx[i]);
+                                                        hand6y.Add(detectedy[i]);
+                                                    }
+                                                    else
+                                                    {
+                                                        if (Mathf.Abs(detectedx[i] - hand6x[0]) + Mathf.Abs(detectedy[i] - hand6y[0]) < avilabledistance)
+                                                        {
+                                                            hand6x.Add(detectedx[i]);
+                                                            hand6y.Add(detectedy[i]);
+                                                        }
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                                 }
@@ -285,6 +328,8 @@ public class DepthSourceView : MonoBehaviour
         hand2ave();
         hand3ave();
         hand4ave();
+        hand5ave();
+        hand6ave();
 
         detectedx.Clear();
         detectedy.Clear();
@@ -296,12 +341,16 @@ public class DepthSourceView : MonoBehaviour
         hand3y.Clear();
         hand4x.Clear();
         hand4y.Clear();
+        hand5x.Clear();
+        hand5y.Clear();
+        hand6x.Clear();
+        hand6y.Clear();
     }
     
     private void RefreshData(ushort[] depthData, int colorWidth, int colorHeight)   //データ入れる場所　デプス,1920,1080
     {
         int cnt = 0;
-        for (int i = 0; i < 512; i+=2)  //計算量短縮
+        for (int i = 0; i < 512; i+=2)  //計算量短縮、fpsを維持するために横幅の精度1/2
         {
             int num = 108544 + i;   //512*(424/2)
             if (800 < depthData[num] && depthData[num] < 1800 && pre_i != i)
@@ -309,9 +358,10 @@ public class DepthSourceView : MonoBehaviour
                 /*
                  * 左下と左上のnumとdepthを用いて連立方程式を解く
                  * この場合、y=ax+b 左上1700=130a+b, 左下850=0a+b
+                 * 一般化すると、y1=ax1+b y2=a2x+b
                  */
                 pre_i = i;
-                float a = 6.5f;  //6.5385
+                float a = 6.5f;  //6.5385   計算量短縮
                 float b = 850f;
                 float c = (depthData[num] - b) / a;
                 real_x = (1303 / 2) / (256 - c) * (i - c);
@@ -518,6 +568,72 @@ public class DepthSourceView : MonoBehaviour
 
             avex = avex / hand4x.Count;
             avey = avey / hand4y.Count;
+            //Debug.Log(avex.ToString() + "," + avey.ToString());
+
+            Vector3 pos = HandPoint4.transform.localPosition;
+            pos.x = avex / 10;
+            pos.y = avey / 10;
+            pos.z = 0;
+            HandPoint4.transform.localPosition = pos;
+            handexit[3] = 1;
+        }
+        else
+        {
+            Vector3 pos = HandPoint4.transform.localPosition;
+            pos.z = -200;
+            HandPoint4.transform.localPosition = pos;
+            handexit[3] = 0;
+        }
+    }
+
+    void hand5ave()
+    {
+        if (hand5x.Count != 0)
+        {
+            float avex = 0;
+            float avey = 0;
+
+            for (int i = 0; i < hand5x.Count; i++)
+            {
+                avex += hand5x[i];
+                avey += hand5y[i];
+            }
+
+            avex = avex / hand5x.Count;
+            avey = avey / hand5y.Count;
+            //Debug.Log(avex.ToString() + "," + avey.ToString());
+
+            Vector3 pos = HandPoint4.transform.localPosition;
+            pos.x = avex / 10;
+            pos.y = avey / 10;
+            pos.z = 0;
+            HandPoint4.transform.localPosition = pos;
+            handexit[3] = 1;
+        }
+        else
+        {
+            Vector3 pos = HandPoint4.transform.localPosition;
+            pos.z = -200;
+            HandPoint4.transform.localPosition = pos;
+            handexit[3] = 0;
+        }
+    }
+
+    void hand6ave()
+    {
+        if (hand6x.Count != 0)
+        {
+            float avex = 0;
+            float avey = 0;
+
+            for (int i = 0; i < hand6x.Count; i++)
+            {
+                avex += hand6x[i];
+                avey += hand6y[i];
+            }
+
+            avex = avex / hand6x.Count;
+            avey = avey / hand6y.Count;
             //Debug.Log(avex.ToString() + "," + avey.ToString());
 
             Vector3 pos = HandPoint4.transform.localPosition;
