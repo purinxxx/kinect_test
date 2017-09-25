@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: anemonefish_2_texture
+  m_Shader: {fileID: 4800000, guid: 976dce5db6f1ea94d8e6b2abfdb27458, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Caustics:
+        m_Texture: {fileID: 2800000, guid: 6d3d96fcb3047c643a1d89c2b74c0bec, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 0b7993111bb05f44a9fda161271afa46, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _Animation: 0
+    - _CausticsBoost: 0
+    - _CausticsIntensity0: 1
+    - _CausticsIntensity1: 0
+    - _CausticsPosition0: 2
+    - _CausticsPosition1: 4
+    - _CausticsSpeed: 1
+    - _FogEnd: 15
+    - _FogIntensity0: 1
+    - _FogIntensity1: 1
+    - _FogPosition0: 0
+    - _FogPosition1: 6
+    - _FogStart: 0
+    m_Colors:
+    - _CausticsCoord: {r: 0.5, g: 0.5, b: 0, a: 0}
+    - _FogColor0: {r: 0.27022058, g: 0.81208676, b: 0.875, a: 1}
+    - _FogColor1: {r: 0.22123702, g: 0.42601416, b: 0.9117647, a: 1}

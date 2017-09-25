@@ -9,8 +9,8 @@ public class movefish : MonoBehaviour {
     private Vector3 target;
     private Vector3 targetvector;
     public float avairabledistance = 0.5f;
-    public float speed = 0.004f, maxspeed = 0.006f, minspeed = 0.0005f, rotatespeed = 1f;
-    public float x1 = 153f, x2 = 154.65f, y1 = -58.8f, y2 = -59.85f;
+    public float speed = 0.004f, maxspeed = 0.006f, minspeed = 0.0005f, rotatespeed = 0.01f;
+    public float x1 = 153f, x2 = 154.64f, y1 = -58.8f, y2 = -59.8f;
     //private bool orikaesi = true;
 
     // Use this for initialization
