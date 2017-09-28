@@ -518,6 +518,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mat: {fileID: 2100000, guid: 8118598de607aa146a84c08d2db2f21f, type: 2}
   _tex: {fileID: 8400000, guid: 3181b191d4918614d9666cc327a02c10, type: 2}
+  _test: {fileID: 2800000, guid: d5e56450d92179444a8d021563c0dd70, type: 3}
   _vertixes:
   - {x: 0, y: 0}
   - {x: 0, y: 1}

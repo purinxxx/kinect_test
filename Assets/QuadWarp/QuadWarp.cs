@@ -8,10 +8,12 @@ public class QuadWarp : MonoBehaviour {
     public Material _mat;
 
     public Texture _tex;
+    public Texture _test;
     public Vector2[] _vertixes = new[] { new Vector2(0f, 0f), new Vector2(0f, 1f), new Vector2(1f, 1f), new Vector2(1f, 0f) };
 
     int vnum = 0;
     int unlock = 1;
+    int test = -1;
 
     Matrix4x4 CalcHomography(Vector2 p0, Vector2 p1, Vector2 p2, Vector2 p3)
     {
@@ -56,7 +58,7 @@ public class QuadWarp : MonoBehaviour {
         GL.PushMatrix();
         GL.LoadOrtho();
 
-        _mat.mainTexture = _tex;
+        //_mat.mainTexture = _tex;
         _mat.SetMatrix("_Homography", homography);
         _mat.SetPass(0);
 
@@ -81,23 +83,19 @@ public class QuadWarp : MonoBehaviour {
         if (Input.GetButtonDown("Scuare"))
         {
             vnum = 0;
-            Debug.Log("□");
         }
         else if (Input.GetButtonDown("Cross"))
         {
             vnum = 3;
-            Debug.Log("×");
         }
         else if (Input.GetButtonDown("Circle"))
         {
             vnum = 2;
-            Debug.Log("○");
 
         }
         else if (Input.GetButtonDown("Triangle"))
         {
             vnum = 1;
-            Debug.Log("△");
         }
 
         if (Input.GetButtonDown("R2"))
@@ -111,6 +109,21 @@ public class QuadWarp : MonoBehaviour {
             _vertixes[vnum].y += Input.GetAxis("Vertical1") / 400;
             _vertixes[vnum].x += Input.GetAxis("Mouse X1") / 1000;
             _vertixes[vnum].y += Input.GetAxis("Mouse Y1") / 1000;
+
+            if (Input.GetButtonDown("L2"))
+            {
+                test *= -1;
+            }
+
+            if (test == 1)
+            {
+                _mat.mainTexture = _test;
+            }
+
+            if (test == -1)
+            {
+                _mat.mainTexture = _tex;
+            }
         }
     }
 }
