@@ -603,18 +603,18 @@ public class DepthSourceView : MonoBehaviour
             avey = avey / hand5y.Count;
             //Debug.Log(avex.ToString() + "," + avey.ToString());
 
-            Vector3 pos = HandPoint4.transform.localPosition;
+            Vector3 pos = HandPoint5.transform.localPosition;
             pos.x = avex / 10;
             pos.y = avey / 10;
             pos.z = 0;
-            HandPoint4.transform.localPosition = pos;
+            HandPoint5.transform.localPosition = pos;
             handexit[3] = 1;
         }
         else
         {
-            Vector3 pos = HandPoint4.transform.localPosition;
+            Vector3 pos = HandPoint5.transform.localPosition;
             pos.z = -200;
-            HandPoint4.transform.localPosition = pos;
+            HandPoint5.transform.localPosition = pos;
             handexit[3] = 0;
         }
     }
@@ -636,18 +636,18 @@ public class DepthSourceView : MonoBehaviour
             avey = avey / hand6y.Count;
             //Debug.Log(avex.ToString() + "," + avey.ToString());
 
-            Vector3 pos = HandPoint4.transform.localPosition;
+            Vector3 pos = HandPoint6.transform.localPosition;
             pos.x = avex / 10;
             pos.y = avey / 10;
             pos.z = 0;
-            HandPoint4.transform.localPosition = pos;
+            HandPoint6.transform.localPosition = pos;
             handexit[3] = 1;
         }
         else
         {
-            Vector3 pos = HandPoint4.transform.localPosition;
+            Vector3 pos = HandPoint6.transform.localPosition;
             pos.z = -200;
-            HandPoint4.transform.localPosition = pos;
+            HandPoint6.transform.localPosition = pos;
             handexit[3] = 0;
         }
     }
