@@ -39,15 +39,14 @@ public class movefish : MonoBehaviour {
 
         }
 
-        float dmin = Mathf.Min(d);  //最も近くの手が一定の距離以内の場合、その手に向かって泳ぐ
+        float dmin = Mathf.Min(d);
 
-        if (dmin < avairabledistance && dmin > 0.2f)
+        if (dmin < avairabledistance && dmin > 0.1f)    //最も近くの手が一定の距離以内の場合、その手に向かって泳ぐ
         {
             for (int i = 0; i < d.Length; i++)
             {
                 if (d[i] == dmin)
                 {
-                    speed += 0.002f;
                     targetnum = i;
                     target.x = hand.handvertex[targetnum].x;
                     target.y = hand.handvertex[targetnum].y;
@@ -57,15 +56,14 @@ public class movefish : MonoBehaviour {
         else
         {
             float td = Mathf.Sqrt(Mathf.Pow(target.x - this.transform.position.x, 2) + Mathf.Pow(target.y - this.transform.position.y, 2));
-            if (td < 0.1f)
+            if (td < 0.1f)  //ターゲットまで移動しきったら違うターゲットをランダム指定する
             {
-                target.x = Random.Range(x1, x2);
-                target.y = Random.Range(y1, y2);
+                randomTarget();
             }
             //Debug.Log(target);
-            speed += Random.Range(-0.0003f,0.0003f);
-            if (speed > maxspeed) speed -= 0.001f;
-            if (speed < minspeed) speed += 0.001f;
+            speed += Random.Range(-0.00005f,0.00005f);
+            if (speed > maxspeed) speed -= 0.0001f;
+            if (speed < minspeed) speed += 0.0001f;
             target.z = transform.position.z;
             targetvector = target - transform.position;
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(targetvector), rotatespeed);
@@ -76,7 +74,7 @@ public class movefish : MonoBehaviour {
 
         if (targetnum != -1)
         {
-            speed = 0.005f;
+            speed = 0.006f;
             target.z = transform.position.z;
             targetvector = target - transform.position;
             //targetの方に少しずつ向きが変わる
@@ -94,6 +92,11 @@ public class movefish : MonoBehaviour {
         orikaesi = true;
     }*/
     private void OnCollisionEnter(Collision collision)
+    {
+        randomTarget();
+    }
+
+    private void randomTarget()
     {
         target.x = Random.Range(x1, x2);
         target.y = Random.Range(y1, y2);

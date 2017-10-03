@@ -2770,10 +2770,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   avairabledistance: 0.5
-  speed: 0.004
-  maxspeed: 0.006
+  speed: 0.003
+  maxspeed: 0.005
   minspeed: 0.0005
-  rotatespeed: 0.01
+  rotatespeed: 0.012
   x1: 153
   x2: 154.65
   y1: -58.8
@@ -2800,7 +2800,7 @@ Animator:
   m_GameObject: {fileID: 568098228}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 01c9c177bbcbb054f9f4af18ee7208f2, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a951e113c6b87f5448b31965dedbfb92, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3856,10 +3856,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   avairabledistance: 0.5
-  speed: 0.004
-  maxspeed: 0.006
+  speed: 0.003
+  maxspeed: 0.005
   minspeed: 0.0005
-  rotatespeed: 0.01
+  rotatespeed: 0.012
   x1: 153
   x2: 154.65
   y1: -58.8
@@ -3886,7 +3886,7 @@ Animator:
   m_GameObject: {fileID: 907499769}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 01c9c177bbcbb054f9f4af18ee7208f2, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a951e113c6b87f5448b31965dedbfb92, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -5228,10 +5228,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   avairabledistance: 0.5
-  speed: 0.004
-  maxspeed: 0.006
+  speed: 0.003
+  maxspeed: 0.005
   minspeed: 0.0005
-  rotatespeed: 0.01
+  rotatespeed: 0.012
   x1: 153
   x2: 154.65
   y1: -58.8
@@ -5457,10 +5457,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   avairabledistance: 0.5
-  speed: 0.004
-  maxspeed: 0.006
+  speed: 0.003
+  maxspeed: 0.005
   minspeed: 0.0005
-  rotatespeed: 0.01
+  rotatespeed: 0.012
   x1: 153
   x2: 154.65
   y1: -58.8
@@ -7020,10 +7020,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   avairabledistance: 0.5
-  speed: 0.004
-  maxspeed: 0.006
+  speed: 0.003
+  maxspeed: 0.005
   minspeed: 0.0005
-  rotatespeed: 0.01
+  rotatespeed: 0.012
   x1: 153
   x2: 154.65
   y1: -58.8
@@ -8415,10 +8415,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   avairabledistance: 0.5
-  speed: 0.004
-  maxspeed: 0.006
+  speed: 0.003
+  maxspeed: 0.005
   minspeed: 0.0005
-  rotatespeed: 0.01
+  rotatespeed: 0.012
   x1: 153
   x2: 154.65
   y1: -58.8
@@ -8445,7 +8445,7 @@ Animator:
   m_GameObject: {fileID: 1842233370}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 01c9c177bbcbb054f9f4af18ee7208f2, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a951e113c6b87f5448b31965dedbfb92, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -8740,10 +8740,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   avairabledistance: 0.5
-  speed: 0.004
-  maxspeed: 0.006
+  speed: 0.003
+  maxspeed: 0.005
   minspeed: 0.0005
-  rotatespeed: 0.01
+  rotatespeed: 0.012
   x1: 153
   x2: 154.65
   y1: -58.8
@@ -9359,10 +9359,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   avairabledistance: 0.5
-  speed: 0.004
-  maxspeed: 0.006
+  speed: 0.003
+  maxspeed: 0.005
   minspeed: 0.0005
-  rotatespeed: 0.01
+  rotatespeed: 0.012
   x1: 153
   x2: 154.65
   y1: -58.8
@@ -9490,10 +9490,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   avairabledistance: 0.5
-  speed: 0.004
-  maxspeed: 0.006
+  speed: 0.003
+  maxspeed: 0.005
   minspeed: 0.0005
-  rotatespeed: 0.01
+  rotatespeed: 0.012
   x1: 153
   x2: 154.65
   y1: -58.8

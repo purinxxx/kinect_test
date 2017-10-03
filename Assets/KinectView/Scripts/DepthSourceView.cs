@@ -361,12 +361,12 @@ public class DepthSourceView : MonoBehaviour
                  * 一般化すると、y1=ax1+b y2=a2x+b
                  */
                 pre_i = i;
-                float a = 6.5f;  //6.5385   計算量短縮
-                float b = 850f;
+                float a = 6.932f;    //6.5f;  //6.5385   計算量短縮
+                float b = 816f;  //850f;
                 float c = (depthData[num] - b) / a;
                 real_x = (1303 / 2) / (256 - c) * (i - c);
                 real_x = Mathf.Floor(real_x);
-                real_y = (depthData[num] - 850) * 1.14f;    //970 / 850;
+                real_y = (depthData[num] - 818) * 1.185f;    //970 / 818;   818=y2-y1
                 real_y = Mathf.Floor(real_y);
                 Debug.Log("x = " + i.ToString() + "    y = " + depthData[num].ToString() + "    real_x = " + real_x.ToString() + "    real_y = " + real_y.ToString());
                 detectedx.Add(real_x);
