@@ -118,6 +118,7 @@ public class movefish : MonoBehaviour {
             normalv.x += Random.Range(-0.5f, 0.5f); //真反対に向くのではなくランダムさを持たせる
             normalv.y += Random.Range(-0.5f, 0.5f);
             normalflag = true;
+            speed -= 0.00001f;
         }
     }
 
