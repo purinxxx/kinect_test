@@ -12,6 +12,8 @@ public class movefish : MonoBehaviour {
     public float speed = 0.004f, maxspeed = 0.006f, minspeed = 0.0005f, rotatespeed = 0.01f;
     public float x1 = 153f, x2 = 154.64f, y1 = -58.8f, y2 = -59.8f;
     //private bool orikaesi = true;
+    private bool normalflag = false;
+    private Vector3 normalv;
 
     // Use this for initialization
     void Start ()
@@ -50,29 +52,44 @@ public class movefish : MonoBehaviour {
                     targetnum = i;
                     target.x = hand.handvertex[targetnum].x;
                     target.y = hand.handvertex[targetnum].y;
+                    normalflag = false;
                 }
             }
         }
         else
         {
-            float td = Mathf.Sqrt(Mathf.Pow(target.x - this.transform.position.x, 2) + Mathf.Pow(target.y - this.transform.position.y, 2));
-            if (td < 0.1f)  //ターゲットまで移動しきったら違うターゲットをランダム指定する
+            if (normalflag) //衝突した魚と反対方向に泳ぐ
             {
-                randomTarget();
+                //Debug.Log(target);
+                speed += Random.Range(-0.00005f, 0.00005f);
+                if (speed > maxspeed) speed -= 0.0001f;
+                if (speed < minspeed) speed += 0.0001f;
+                target.z = transform.position.z;
+                targetvector = normalv - transform.position;
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(normalv), rotatespeed);
+                transform.position += transform.forward * speed;
             }
-            //Debug.Log(target);
-            speed += Random.Range(-0.00005f,0.00005f);
-            if (speed > maxspeed) speed -= 0.0001f;
-            if (speed < minspeed) speed += 0.0001f;
-            target.z = transform.position.z;
-            targetvector = target - transform.position;
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(targetvector), rotatespeed);
-            transform.position += transform.forward * speed;
+            else //ランダムなターゲット方向に泳ぐ
+            {
+                float td = Mathf.Sqrt(Mathf.Pow(target.x - this.transform.position.x, 2) + Mathf.Pow(target.y - this.transform.position.y, 2));
+                if (td < 0.1f)  //ターゲットまで移動しきったら違うターゲットをランダム指定する
+                {
+                    randomTarget();
+                }
+                //Debug.Log(target);
+                speed += Random.Range(-0.00005f, 0.00005f);
+                if (speed > maxspeed) speed -= 0.0001f;
+                if (speed < minspeed) speed += 0.0001f;
+                target.z = transform.position.z;
+                targetvector = target - transform.position;
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(targetvector), rotatespeed);
+                transform.position += transform.forward * speed;
+            }
             
         }
 
 
-        if (targetnum != -1)
+        if (targetnum != -1)    //手の方向に泳ぐ
         {
             speed = 0.006f;
             target.z = transform.position.z;
@@ -83,21 +100,30 @@ public class movefish : MonoBehaviour {
             transform.position += transform.forward * speed;
             targetnum = -1;
         }
-	}
 
-    /*private IEnumerator wait()
+        if (transform.position.x < x1 || transform.position.x > x2 || transform.position.y < y2 || transform.position.y > y1)
+        {
+            randomTarget();
+        }
+	}
+    
+
+    public void OnCollisionEnter(Collision other)
     {
-        // 5秒待つ  
-        yield return new WaitForSeconds(5.0f);
-        orikaesi = true;
-    }*/
-    private void OnCollisionEnter(Collision collision)
-    {
-        randomTarget();
+        foreach (ContactPoint point in other.contacts)
+        {
+            //衝突した点の法線ベクトルを使い、衝突した魚と反対方向に泳ぐ
+            normalv = point.normal;
+            normalv.z = 0;
+            Debug.Log(normalv);
+            normalflag = true;
+        }
     }
+
 
     private void randomTarget()
     {
+        normalflag = false;
         target.x = Random.Range(x1, x2);
         target.y = Random.Range(y1, y2);
     }
