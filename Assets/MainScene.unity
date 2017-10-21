@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 14127586}
   - component: {fileID: 14127585}
   m_Layer: 8
-  m_Name: AnemonoFish (4)
+  m_Name: AnemonoFish2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -168,7 +168,7 @@ Transform:
   - {fileID: 1446576567}
   - {fileID: 852619876}
   m_Father: {fileID: 174368321}
-  m_RootOrder: 10
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!54 &14127585
 Rigidbody:
@@ -568,7 +568,7 @@ GameObject:
   - component: {fileID: 49316928}
   - component: {fileID: 49316927}
   m_Layer: 8
-  m_Name: AngelFish (5)
+  m_Name: AngelFish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -581,13 +581,13 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 49316925}
   m_LocalRotation: {x: -0.00000006939254, y: -0.7071068, z: 0.00000006939254, w: 0.7071068}
-  m_LocalPosition: {x: 0.7189789, y: -0.020000398, z: -0.1299975}
-  m_LocalScale: {x: 1.0000012, y: 1, z: 1.0000012}
+  m_LocalPosition: {x: 0.7189789, y: -0.020000407, z: -0.12999752}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 579229815}
   - {fileID: 1353848029}
   m_Father: {fileID: 174368321}
-  m_RootOrder: 15
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!54 &49316927
 Rigidbody:
@@ -1071,7 +1071,7 @@ GameObject:
   - component: {fileID: 153943068}
   - component: {fileID: 153943067}
   m_Layer: 8
-  m_Name: AngelFish (1)
+  m_Name: AngelFish2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1090,7 +1090,7 @@ Transform:
   - {fileID: 1130602274}
   - {fileID: 1858098158}
   m_Father: {fileID: 174368321}
-  m_RootOrder: 14
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!54 &153943067
 Rigidbody:
@@ -1311,22 +1311,22 @@ RectTransform:
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
   - {fileID: 1842233371}
+  - {fileID: 200296548}
+  - {fileID: 904300634}
   - {fileID: 568098229}
   - {fileID: 907499770}
-  - {fileID: 1922244882}
+  - {fileID: 14127584}
   - {fileID: 1615548329}
   - {fileID: 1261547621}
+  - {fileID: 49316926}
+  - {fileID: 1147658644}
+  - {fileID: 1922244882}
+  - {fileID: 153943066}
   - {fileID: 2036097870}
   - {fileID: 2027292614}
-  - {fileID: 1311317378}
-  - {fileID: 904300634}
-  - {fileID: 14127584}
-  - {fileID: 1147658644}
   - {fileID: 356736366}
   - {fileID: 1729134254}
-  - {fileID: 153943066}
-  - {fileID: 49316926}
-  - {fileID: 200296548}
+  - {fileID: 1311317378}
   - {fileID: 961935971}
   m_Father: {fileID: 1314419030}
   m_RootOrder: 5
@@ -1519,7 +1519,7 @@ GameObject:
   - component: {fileID: 200296550}
   - component: {fileID: 200296549}
   m_Layer: 8
-  m_Name: AnemonoFish (5)
+  m_Name: AnemonoFish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1538,7 +1538,7 @@ Transform:
   - {fileID: 446546346}
   - {fileID: 645986756}
   m_Father: {fileID: 174368321}
-  m_RootOrder: 16
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!54 &200296549
 Rigidbody:
@@ -3016,7 +3016,7 @@ GameObject:
   - component: {fileID: 356736368}
   - component: {fileID: 356736367}
   m_Layer: 8
-  m_Name: GoldenButtefly (2)
+  m_Name: GoldenButtefly
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3035,7 +3035,7 @@ Transform:
   - {fileID: 412316475}
   - {fileID: 1420007857}
   m_Father: {fileID: 174368321}
-  m_RootOrder: 12
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!65 &356736367
 BoxCollider:
@@ -4410,7 +4410,7 @@ GameObject:
   - component: {fileID: 568098230}
   - component: {fileID: 568098233}
   m_Layer: 8
-  m_Name: AnemonoFish (1)
+  m_Name: AnemonoFish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4429,7 +4429,7 @@ Transform:
   - {fileID: 1711785194}
   - {fileID: 1908293548}
   m_Father: {fileID: 174368321}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!114 &568098230
 MonoBehaviour:
@@ -4743,7 +4743,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 442108, guid: 14ef3cb01b069fd40b26bc617c43783b, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 11499528, guid: 14ef3cb01b069fd40b26bc617c43783b, type: 2}
       propertyPath: materials.Array.data[0]
@@ -6290,7 +6290,7 @@ GameObject:
   - component: {fileID: 904300636}
   - component: {fileID: 904300635}
   m_Layer: 8
-  m_Name: AnemonoFish (3)
+  m_Name: AnemonoFish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6309,7 +6309,7 @@ Transform:
   - {fileID: 898359813}
   - {fileID: 554591034}
   m_Father: {fileID: 174368321}
-  m_RootOrder: 9
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!54 &904300635
 Rigidbody:
@@ -6389,7 +6389,7 @@ GameObject:
   - component: {fileID: 907499771}
   - component: {fileID: 907499774}
   m_Layer: 8
-  m_Name: AnemonoFish (2)
+  m_Name: AnemonoFish2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6408,7 +6408,7 @@ Transform:
   - {fileID: 275891466}
   - {fileID: 875501128}
   m_Father: {fileID: 174368321}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!114 &907499771
 MonoBehaviour:
@@ -6777,7 +6777,7 @@ GameObject:
   - component: {fileID: 961935973}
   - component: {fileID: 961935972}
   m_Layer: 8
-  m_Name: GoldenButtefly (6)
+  m_Name: GoldenButtefly2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6841,9 +6841,9 @@ MonoBehaviour:
   maxspeed: 0.007
   minspeed: 0.002
   rotatespeed: 0.015
-  x1: 153
-  x2: 154.65
-  y1: -58.8
+  x1: 152.5
+  x2: 155.15
+  y1: -58.3
   y2: -59.8
 --- !u!95 &961935975
 Animator:
@@ -7832,7 +7832,7 @@ GameObject:
   - component: {fileID: 1147658646}
   - component: {fileID: 1147658645}
   m_Layer: 8
-  m_Name: AngelFish (4)
+  m_Name: AngelFish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7851,7 +7851,7 @@ Transform:
   - {fileID: 1312887633}
   - {fileID: 485237092}
   m_Father: {fileID: 174368321}
-  m_RootOrder: 11
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!54 &1147658645
 Rigidbody:
@@ -8542,7 +8542,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4610450521836010, guid: 23e443a862b45f0439f222e9e673dd68, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4610450521836010, guid: 23e443a862b45f0439f222e9e673dd68, type: 2}
       propertyPath: m_LocalScale.x
@@ -8631,7 +8631,7 @@ GameObject:
   - component: {fileID: 1261547625}
   - component: {fileID: 1261547626}
   m_Layer: 8
-  m_Name: AngelFish (3)
+  m_Name: AngelFish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8650,7 +8650,7 @@ Transform:
   - {fileID: 1947183398}
   - {fileID: 589125812}
   m_Father: {fileID: 174368321}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!65 &1261547622
 BoxCollider:
@@ -8968,7 +8968,7 @@ GameObject:
   - component: {fileID: 1311317382}
   - component: {fileID: 1311317383}
   m_Layer: 8
-  m_Name: GoldenButtefly (5)
+  m_Name: GoldenButtefly2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8987,7 +8987,7 @@ Transform:
   - {fileID: 1984438821}
   - {fileID: 1249703153}
   m_Father: {fileID: 174368321}
-  m_RootOrder: 8
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!114 &1311317379
 MonoBehaviour:
@@ -11059,7 +11059,7 @@ GameObject:
   - component: {fileID: 1615548333}
   - component: {fileID: 1615548334}
   m_Layer: 8
-  m_Name: AngelFish (2)
+  m_Name: AngelFish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11078,7 +11078,7 @@ Transform:
   - {fileID: 178261766}
   - {fileID: 362915579}
   m_Father: {fileID: 174368321}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!65 &1615548330
 BoxCollider:
@@ -12003,7 +12003,7 @@ GameObject:
   - component: {fileID: 1729134256}
   - component: {fileID: 1729134255}
   m_Layer: 8
-  m_Name: GoldenButtefly (3)
+  m_Name: GoldenButtefly
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12022,7 +12022,7 @@ Transform:
   - {fileID: 2041962542}
   - {fileID: 607131478}
   m_Father: {fileID: 174368321}
-  m_RootOrder: 13
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!65 &1729134255
 BoxCollider:
@@ -13995,7 +13995,7 @@ GameObject:
   - component: {fileID: 1922244886}
   - component: {fileID: 1922244887}
   m_Layer: 8
-  m_Name: AngelFish
+  m_Name: AngelFish2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14014,7 +14014,7 @@ Transform:
   - {fileID: 581627332}
   - {fileID: 1127442661}
   m_Father: {fileID: 174368321}
-  m_RootOrder: 3
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!95 &1922244883
 Animator:
@@ -14803,7 +14803,7 @@ GameObject:
   - component: {fileID: 2027292618}
   - component: {fileID: 2027292619}
   m_Layer: 8
-  m_Name: GoldenButtefly (1)
+  m_Name: GoldenButtefly
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14822,7 +14822,7 @@ Transform:
   - {fileID: 1967313106}
   - {fileID: 232134564}
   m_Father: {fileID: 174368321}
-  m_RootOrder: 7
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!114 &2027292615
 MonoBehaviour:
@@ -14967,7 +14967,7 @@ Transform:
   - {fileID: 493264542}
   - {fileID: 276438996}
   m_Father: {fileID: 174368321}
-  m_RootOrder: 6
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!114 &2036097871
 MonoBehaviour:

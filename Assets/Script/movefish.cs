@@ -114,8 +114,9 @@ public class movefish : MonoBehaviour {
         {
             //衝突した点の法線ベクトルを使い、衝突した魚と反対方向に泳ぐ
             normalv = point.normal;
-            normalv.z = 0;
-            Debug.Log(normalv);
+            normalv.z = 0;  //あくまで平面的な場所に魚は泳いでるのでXとY方向のみ
+            normalv.x += Random.Range(-0.5f, 0.5f); //真反対に向くのではなくランダムさを持たせる
+            normalv.y += Random.Range(-0.5f, 0.5f);
             normalflag = true;
         }
     }
