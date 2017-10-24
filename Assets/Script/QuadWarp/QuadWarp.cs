@@ -131,7 +131,7 @@ public class QuadWarp : MonoBehaviour {
             rgb += Input.GetAxis("sayuu");
 
             hosei.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alpha / 255.0f);
-            floor.GetComponent<Renderer>().material.SetColor("_FogColor1", new Color(rgb / 255.0f, rgb / 255.0f, rgb / 255.0f, 1));
+            floor.GetComponent<Renderer>().sharedMaterial.SetColor("_FogColor1", new Color(rgb / 255.0f, rgb / 255.0f, rgb / 255.0f, 1));
             iwa.GetComponent<SpriteRenderer>().color = new Color(rgb / 255.0f, rgb / 255.0f, rgb / 255.0f, 1);
             PlayerPrefs.SetFloat("0x", _vertixes[0].x);
             PlayerPrefs.SetFloat("0y", _vertixes[0].y);
