@@ -91,8 +91,10 @@ public class QuadWarp : MonoBehaviour {
         _vertixes[2].y = PlayerPrefs.GetFloat("2y", 1f);
         _vertixes[3].x = PlayerPrefs.GetFloat("3x", 1f);
         _vertixes[3].y = PlayerPrefs.GetFloat("3y", 0f);
-        alpha = PlayerPrefs.GetFloat("alpha", 50);
-        rgb = PlayerPrefs.GetFloat("rgb", 130);
+        //alpha = PlayerPrefs.GetFloat("alpha", 50);
+        //rgb = PlayerPrefs.GetFloat("rgb", 130);
+        alpha = 40;
+        rgb = 150;
     }
 
     void Update()
@@ -141,8 +143,8 @@ public class QuadWarp : MonoBehaviour {
             PlayerPrefs.SetFloat("2y", _vertixes[2].y);
             PlayerPrefs.SetFloat("3x", _vertixes[3].x);
             PlayerPrefs.SetFloat("3y", _vertixes[3].y);
-            PlayerPrefs.SetFloat("alpha", alpha);
-            PlayerPrefs.SetFloat("rgb", rgb);
+            //PlayerPrefs.SetFloat("alpha", alpha);
+            //PlayerPrefs.SetFloat("rgb", rgb);
 
             if (Input.GetButtonDown("L2"))
             {

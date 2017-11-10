@@ -3131,8 +3131,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 77329e58939a8304f937fc76c93d5d64, type: 3}
-  m_Color: {r: 0.3372549, g: 0.3372549, b: 0.3372549, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 13b2317720e9a93419879ae2857b0f91, type: 3}
+  m_Color: {r: 0.5882353, g: 0.5882353, b: 0.5882353, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4362,7 +4362,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.986207, g: 0, b: 0, a: 0.23529412}
+  m_Color: {r: 0.986207, g: 0, b: 0, a: 0.78431374}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5929,7 +5929,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 798deb1488486b0409f5212ed617924a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.5137255}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.15686275}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -11379,7 +11379,7 @@ Material:
     - _EmissionColorUI: {r: 1, g: 1, b: 1, a: 1}
     - _FogColor: {r: 0.004433395, g: 0.27036607, b: 0.30147058, a: 1}
     - _FogColor0: {r: 0.14889707, g: 0.4763946, b: 0.75, a: 1}
-    - _FogColor1: {r: 0.3372549, g: 0.3372549, b: 0.3372549, a: 1}
+    - _FogColor1: {r: 0.5882353, g: 0.5882353, b: 0.5882353, a: 1}
 --- !u!1 &1257035120
 GameObject:
   m_ObjectHideFlags: 0
